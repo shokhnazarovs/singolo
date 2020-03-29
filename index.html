@@ -6,51 +6,78 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="popup" style="display: none">
+        <p>The letter was sent</p>
+        <p class="subject">eklvmlekvmle</p>
+        <p class="description">elrvkmerlkv</p>
+        <button>Ok</button>
+    </div>
+    <div class="fade" style="opacity: 1">
     <header>
-        <div class="singolo"><h1>SINGOLO<span class="star">*</span></h1></div>
-        <nav class="navigation">
-            <div class="bar home"><a href="#">HOME</a></div>
-            <div class="bar services"><a href="#">SERVICES</a></div>
-            <div class="bar portfolio"><a href="#">PORTFOLIO</a></div>
-            <div class="bar about"><a href="#">ABOUT</a></div>
-            <div class="bar contact"><a href="#">CONTACT</a></div>
-        </nav>
+        <div class="header__wrapper">
+            <div class="singolo"><h1>SINGOLO<span class="star">*</span></h1></div>
+            <nav class="navigation">
+                <div class="bar home"><a href="#slider" class="selected">HOME</a></div>
+                <div class="bar services"><a href="#our_services">SERVICES</a></div>
+                <div class="bar portfolio"><a href="#portfolio">PORTFOLIO</a></div>
+                <div class="bar about"><a href="#aboutus">ABOUT</a></div>
+                <div class="bar contact"><a href="#get-a-quote">CONTACT</a></div>
+            </nav>
+        </div>
     </header>
 
     <div class="line1"></div>
 
-    <section class="slider">
+    <section id="slider">
 
         <div class="arrow left"></div>
-
-        <div class="iphone vertical">
-            <div class="camera"></div>
-            <div class="speaker"></div>
-            <figure>
-                <img src="assets/pic1.png" class="image">
-            </figure>
-            <div class="home_btn">
-                <div class="home_sqr"></div>
-            </div>
-        </div>
-
-        <div class="iphone horizontal">
-            <div class="camera"></div>
-            <div class="speaker"></div>
-            <figure>
-                <img src="assets/pic2.png" class="image">
-            </figure>
-            <div class="home_btn">
-                <div class="home_sqr"></div>
-            </div>
-        </div>
-
         <div class="arrow right"></div>
+
+        <div class="encloser">
+            <div class="hide">
+
+                <div class="slider__wrapper" style="left: 0px">
+                    <div class="slider-1"><img src="assets/Slide-2.png"></div>
+                </div>
+
+                <div class="slider__wrapper" style="left: 1020px">
+                    <div class="slider-2">
+                        <div class="iphone vertical">
+                            <div class="camera"></div>
+                            <div class="speaker"></div>
+                            <figure>
+                                <div class="off-1"></div>
+                                <img src="assets/pic1.png" class="image-1">
+                            </figure>
+                            <div class="home_btn" onclick="switchVertical()">
+                                <div class="home_sqr"></div>
+                            </div>
+                        </div>
+                        <div class="iphone horizontal">
+                            <div class="camera"></div>
+                            <div class="speaker"></div>
+                            <figure>
+                                <div class="off-2"></div>
+                                <img src="assets/pic2.png" class="image-2">
+                            </figure>
+                            <div class="home_btn" onclick="switchHorizontal()">
+                                <div class="home_sqr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider__wrapper" style="left: 2040px">
+                    <div class="slider-3"><img src="assets/Slide-2.png"></div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <div class="line2"></div>
 
-    <main class="our_services">
+    <main id="our_services">
 
         <h2>Our Services</h2>
         <article>
@@ -127,14 +154,14 @@
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 
         <nav class="categories">
-            <a href="#"><div class="box-new all">All</div></a>
-            <a href="#"><div class="box-new web_design">Web Design</div></a>
-            <a href="#"><div class="box-new graphic_design">Graphic Design</div></a>
-            <a href="#"><div class="box-new artwork">Artwork</div></a>
+            <a><div class="box-new all active">All</div></a>
+            <a><div class="box-new web_design">Web Design</div></a>
+            <a><div class="box-new graphic_design">Graphic Design</div></a>
+            <a><div class="box-new artwork">Artwork</div></a>
         </nav>
 
         <figure class="img_container">
-            <a href="#"><div class="img"><img src="assets/image1.png"></div></a>
+            <div class="img"><img src="assets/image1.png"></div>
             <div class="img"><img src="assets/image2.png"></div>
             <div class="img"><img src="assets/image3.png"></div>
             <div class="img"><img src="assets/image4.png"></div>
@@ -146,9 +173,6 @@
             <div class="img"><img src="assets/image10.png"></div>
             <div class="img"><img src="assets/image11.png"></div>
             <div class="img"><img src="assets/image12.png"></div>
-            <div class="img"><img src="assets/image1.png"></div>
-            <div class="img"><img src="assets/image2.png"></div>
-            <div class="img"><img src="assets/image3.png"></div>
         </figure>
     </section>
 
@@ -198,7 +222,7 @@
 
     <div class="line5"></div>
 
-    <section class="get-a-quote">
+    <section id="get-a-quote">
         <h1>Get a Quote</h1>
         <p>
             <span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor</span>
@@ -207,12 +231,12 @@
         </p>
         <div class="information">
             <div class="form">
-                <form action method="POST" >
+                <form action method="POST">
                     <input type="text" name="name" placeholder="Name (Required)" required>
                     <input type="email" name="email" placeholder="Email (Required)" required>
                     <input type="text" name="subject" placeholder="Subject">
                     <textarea name="description" placeholder="Describe your project in detail..."></textarea>
-                    <button>Submit</button>
+                    <button id="form-submit" type="button">Submit</button>
                 </form>
             </div>
             <div class="contacts">
@@ -240,6 +264,7 @@
             <a href="#" class="social"><img src="assets/linkedin.png"></a>
         </div>
     </footer>
-
+    <script type="text/javascript" src="script.js"></script>
+</div>
 </body>
 </html>

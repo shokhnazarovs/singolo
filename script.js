@@ -2,6 +2,11 @@
 ///////////////////////////////////////////////////////
 function menuUpdate(){
 
+    let ser = document.getElementById("our_services");
+    console.log(ser.offsetTop);
+    console.log(ser.offsetHeight);
+    console.log(window.scrollY);
+
     let menuBtn = document.querySelectorAll(".bar a");
 
     for(let i=0; i<menuBtn.length; i++){
@@ -30,23 +35,25 @@ document.addEventListener('scroll', menuUpdate);
 /////////////////////////////////////////////////////
 let next = document.querySelector(".right");
 let prev = document.querySelector(".left");
+let widthEl = document.querySelector('.encloser');
 
 function slideRight(){
+    let w = parseInt(window.getComputedStyle(widthEl, null).getPropertyValue("width"));
     let pos1 = 0;
-    let pos2 = 1020;
+    let pos2 = w;
     let slider = document.getElementsByClassName('slider__wrapper');
 
     let id = setInterval(frame, 1);
 
     function frame() {
-        if (pos1 == 1020) {
+        if (pos1 >= w) {
             clearInterval(id);
             slider[0].innerHTML = slider[1].innerHTML;
             slider[1].innerHTML = slider[2].innerHTML;
             slider[2].innerHTML = slider[0].innerHTML;
 
             slider[0].style.left = '0' + 'px';
-            slider[1].style.left = '1020' + 'px';
+            slider[1].style.left = w + 'px';
         } else {
             pos1 += 5;
             pos2 += 5;
@@ -57,21 +64,22 @@ function slideRight(){
 }
 
 function slideLeft(){
-    let pos1 = 2040;
-    let pos2 = 1020;
+    let w = parseInt(window.getComputedStyle(widthEl, null).getPropertyValue("width"));
+    let pos1 = w*2;
+    let pos2 = w;
     let slider = document.getElementsByClassName('slider__wrapper');
 
     let id = setInterval(frame, 1);
 
     function frame() {
-        if (pos1 == 1020) {
+        if (pos1 <= w) {
             clearInterval(id);
             slider[0].innerHTML = slider[1].innerHTML;
             slider[1].innerHTML = slider[2].innerHTML;
             slider[2].innerHTML = slider[0].innerHTML;
 
-            slider[2].style.left = '2040' + 'px';
-            slider[1].style.left = '1020' + 'px';
+            slider[2].style.left = w*2 + 'px';
+            slider[1].style.left = w + 'px';
         } else {
             pos1 -= 5;
             pos2 -= 5;
@@ -81,8 +89,8 @@ function slideLeft(){
     }
 }
 
-next.addEventListener("click", slideRight);
-prev.addEventListener("click", slideLeft);
+next.addEventListener("click", slideLeft);
+prev.addEventListener("click", slideRight);
 
 //iPhone screen
 /////////////////////////////////////////////////////

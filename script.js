@@ -2,11 +2,6 @@
 ///////////////////////////////////////////////////////
 function menuUpdate(){
 
-    let ser = document.getElementById("our_services");
-    console.log(ser.offsetTop);
-    console.log(ser.offsetHeight);
-    console.log(window.scrollY);
-
     let menuBtn = document.querySelectorAll(".bar a");
 
     for(let i=0; i<menuBtn.length; i++){
@@ -210,3 +205,34 @@ function okClick(){
 
 submitBtn.addEventListener("click", buttonClick);
 okBtn.addEventListener('click', okClick);
+
+
+//Ham menu
+//////////////////////////////////////////////////////////
+
+function ham(){
+    const hamMenu = document.querySelector(".ham-menu");
+
+    hamMenu.style.display = "block";
+    hamMenu.querySelector(".burger").style.transform = "rotate(90deg)";
+    document.querySelector(".alternative-header .singolo").style.display = "none";
+
+}
+
+function hamExit(){
+    const hamMenu = document.querySelector(".ham-menu");
+
+    hamMenu.style.display = "none";
+    //hamMenu.querySelector(".burger").style.transform = "rotate(90deg)";
+    document.querySelector(".alternative-header .singolo").style.display = "block";
+
+}
+
+const hamOpen = document.getElementById("ham-open");
+const selectMenu = document.querySelector(".bar-wrapper");
+const burger = document.querySelector(".burger");
+
+
+hamOpen.addEventListener("click", ham);
+selectMenu.addEventListener("click", hamExit);
+burger.addEventListener('click', hamExit);
